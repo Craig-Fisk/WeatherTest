@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,OACI,46FAAkC,CAClC,0BAA2B,CAC3B,yBAA0B,CAC1B,UAAW,CACX,qBACJ","file":"main.e3664732.chunk.css","sourcesContent":["canvas {\n    background-image: url('./sky.png');\n    background-repeat: repeat-x;\n    background-position-y: top;\n    width: 100%;\n    background-size: cover;\n}"]}
