@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { Home } from "./Home/home";
 import Forcast from "./Forcast/forcast";
+import { History } from "./History/history";
 
 export default function App() {
     return (
@@ -17,6 +18,9 @@ export default function App() {
                     </Route>
                     <Route path="/forcast">
                         <Forcast />
+                    </Route>
+                    <Route path="/history">
+                        <History />
                     </Route>
                 </Switch>
             </Router>

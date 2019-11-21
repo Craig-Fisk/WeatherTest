@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import weatherService from "../Services/weatherService";
 import CloudAnimation from "../Components/cloudAnimation";
 import SunAnimation from "../Components/sunAnimation";
+import SessionService from "../Services/sessionService";
 
 const Forcast = () => {
     const useQuery = () => {
@@ -20,11 +21,21 @@ const Forcast = () => {
 
     useEffect(() => {
         weatherService(query.get("city"), query.get("units")).then(data => {
+            const temperature = data.main.temp;
+            const weather = data.weather[0].main;
+            const description = data.weather[0].description;
+            const name = data.name;
             setForcast(data);
-            setTemperature(data.main.temp);
-            setWeather(data.weather[0].main);
-            setDescription(data.weather[0].description);
-            setName(data.name);
+            setTemperature(temperature);
+            setWeather(weather);
+            setDescription(description);
+            setName(name);
+            SessionService.storeWeather({
+                temperature: `${temperature} °${query.get("units")}`,
+                weather: weather,
+                description: description,
+                name: name
+            });
         });
     }, []);
 
@@ -39,7 +50,7 @@ const Forcast = () => {
                     return <SunAnimation />
             
                 default:
-                    return <h1>Something else!</h1>
+                    return <CloudAnimation />
             }
         }
         
