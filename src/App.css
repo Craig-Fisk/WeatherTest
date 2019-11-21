@@ -1,0 +1,7 @@
+canvas {
+    background-image: url('./sky.png');
+    background-repeat: repeat-x;
+    background-position-y: top;
+    width: 100%;
+    background-size: cover;
+}

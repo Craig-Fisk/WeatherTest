@@ -3,6 +3,7 @@ import Header from "../Components/header";
 import { useLocation } from "react-router-dom";
 import weatherService from "../Services/weatherService";
 import CloudAnimation from "../Components/cloudAnimation";
+import SunAnimation from "../Components/sunAnimation";
 
 const Forcast = () => {
     const useQuery = () => {
@@ -12,12 +13,20 @@ const Forcast = () => {
     let query = useQuery();
 
     const [forcast, setForcast] = useState(null);
+    const [temperature, setTemperature] = useState("");
+    const [weather, setWeather] = useState("");
+    const [description, setDescription] = useState("");
+    const [name, setName] = useState("");
 
     useEffect(() => {
         weatherService(query.get("city"), query.get("units")).then(data => {
             setForcast(data);
+            setTemperature(data.main.temp);
+            setWeather(data.weather[0].main);
+            setDescription(data.weather[0].description);
+            setName(data.name);
         });
-    }, [forcast]);
+    }, []);
 
     const chooseAnimation = () => {
         if(forcast !== null) {
@@ -27,7 +36,7 @@ const Forcast = () => {
                     return <CloudAnimation />
                 
                 case 'Clear':
-                    return <h1>Sunny!</h1>
+                    return <SunAnimation />
             
                 default:
                     return <h1>Something else!</h1>
@@ -45,8 +54,13 @@ const Forcast = () => {
             </div>
 
             <div className="row">
-                <div className="col">
+                <div className="col-6">
                     {chooseAnimation()}
+                </div>
+                <div className="col-6">
+                    <h2>{name}</h2>
+                     <p>{weather} - {description}</p>
+                    <p>{temperature}&deg;{query.get("units")}</p>
                 </div>
             </div>
         </>

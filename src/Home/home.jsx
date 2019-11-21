@@ -20,7 +20,7 @@ export function Home() {
             </div>
             
             <div className="row">
-                <div className="col-6">
+                <div className="col-xs-12 col-md-6">
                     <form>
                         <div className="form-group">
                             <label htmlFor="city">Email address</label>
