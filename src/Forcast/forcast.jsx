@@ -37,6 +37,7 @@ const Forcast = () => {
                 name: name
             });
         });
+        // eslint-disable-next-line
     }, []);
 
     const chooseAnimation = () => {

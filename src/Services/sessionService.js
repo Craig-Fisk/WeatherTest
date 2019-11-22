@@ -1,4 +1,5 @@
 export default class SessionService {
+    // eslint-disable-next-line
     constructor(){};
     static storeWeather(newData) {
         const stored = window.sessionStorage.getItem('weather');

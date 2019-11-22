@@ -33,8 +33,9 @@ const CloudAnimation = () => {
     useEffect(() => {
         const renderQueue = [cloud1, cloud2, cloud3, cloud4];
         const logicQueue = [cloud1, cloud2, cloud3, cloud4];
-
+        // eslint-disable-next-line
         const canvasRenderer = new CanvasRenderer(renderQueue, logicQueue, canvas.current);
+        // eslint-disable-next-line
     }, [canvas]);
 
     return (

@@ -37,8 +37,9 @@ const SunAnimation = () => {
             renderQueue.push(sun);
             logicQueue.push(sun);
         }
-
+        // eslint-disable-next-line
         const canvasRenderer = new CanvasRenderer(renderQueue, logicQueue, canvas.current);
+        // eslint-disable-next-line
     }, [canvas]);
 
     return (
